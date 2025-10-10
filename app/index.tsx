@@ -1,14 +1,28 @@
 import { useFonts } from "expo-font";
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
 import { Image, Text, View } from "react-native";
-import Campana from "../assets/svg/campana.svg"; // Tu icono SVG
+import Campana from "../assets/svg/campana.svg";
+
+import ValuesCarousel from '../components/ValuesCarousel';
+
+
+// Prevenir que el splash screen se oculte automáticamente
+SplashScreen.preventAutoHideAsync();
 
 export default function Index() {
   const [fontsLoaded] = useFonts({
     "SolanoGothicMVB-Bold": require("../assets/fonts/solano-gothic-mvb-bold.ttf"),
   });
 
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   }
 
   return (
@@ -58,6 +72,9 @@ export default function Index() {
           resizeMode="contain"
         />
       </View>
+
+      {/* Value Carrusel */}
+      <ValuesCarousel />
     </View>
   );
 }
