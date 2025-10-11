@@ -2,12 +2,10 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Image, Text, View } from "react-native";
-import Campana from "../assets/svg/campana.svg";
-
 import ValuesCarousel from '../components/ValuesCarousel';
+import Campana from "../assets/svg/campana.svg";
+import Slider from '../assets/images/slider1.png';
 
-
-// Prevenir que el splash screen se oculte automáticamente
 SplashScreen.preventAutoHideAsync();
 
 export default function Index() {
@@ -24,6 +22,13 @@ export default function Index() {
   if (!fontsLoaded) {
     return null;
   }
+
+  // Define tus imágenes aquí
+  const valoresImages = [
+    Slider,
+    Slider,
+    Slider,
+  ];
 
   return (
     <View className="flex-1 bg-[#F8FAFE] px-5 pt-14">
@@ -73,8 +78,13 @@ export default function Index() {
         />
       </View>
 
-      {/* Value Carrusel */}
-      <ValuesCarousel />
+      {/* Value Carrusel - Ahora con props personalizables */}
+      <ValuesCarousel 
+        images={valoresImages}
+        autoPlay={true}
+        autoPlayDuration={3000}
+        height={160}
+      />
     </View>
   );
 }

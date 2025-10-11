@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Dimensions, Image, View, Animated } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 
-import slider from "../assets/images/slider1.png";
-
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 interface CarouselItem {
@@ -11,23 +9,26 @@ interface CarouselItem {
   image: any;
 }
 
-const carouselData: CarouselItem[] = [
-  {
-    id: 1,
-    image: slider,
-  },
-  {
-    id: 2,
-    image: slider,
-  },
-  {
-    id: 3,
-    image: slider,
-  },
-];
+interface ValuesCarouselProps {
+  images: any[];  
+  autoPlay?: boolean; 
+  autoPlayDuration?: number; 
+  height?: number;  // Por defecto 160
+}
 
-export default function ValuesCarousel() {
+export default function ValuesCarousel({ 
+  images, 
+  autoPlay = true,
+  autoPlayDuration = 3000,
+  height = 160 
+}: ValuesCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Convierte el array de imágenes en el formato que necesita el carrusel
+  const carouselData: CarouselItem[] = images.map((image, index) => ({
+    id: index + 1,
+    image: image,
+  }));
   
   // Crear referencias animadas para cada indicador
   const animatedValues = useRef(
@@ -50,7 +51,8 @@ export default function ValuesCarousel() {
       <View className="flex-1 justify-center items-center px-2">
         <Image
           source={item.image}
-          className="w-full h-40 rounded-2xl"
+          className="w-full rounded-2xl"
+          style={{ height }}
           resizeMode="cover"
         />
       </View>
@@ -62,10 +64,10 @@ export default function ValuesCarousel() {
       <Carousel
         loop
         width={SCREEN_WIDTH - 40}
-        height={160}
-        autoPlay={true}
+        height={height}
+        autoPlay={autoPlay}
         data={carouselData}
-        scrollAnimationDuration={3000}
+        scrollAnimationDuration={autoPlayDuration}
         renderItem={renderItem}
         onSnapToItem={(index) => setCurrentIndex(index)}
         panGestureHandlerProps={{
