@@ -1,10 +1,16 @@
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { Image, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
+
+// Components
+import Reservation from "@/components/Reservation";
+import ClassSchedules from '../components/ClassSchedules';
 import ValuesCarousel from '../components/ValuesCarousel';
-import Campana from "../assets/svg/campana.svg";
+
+//Images
 import Slider from '../assets/images/slider1.png';
+import Campana from "../assets/svg/campana.svg";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,8 +37,8 @@ export default function Index() {
   ];
 
   return (
+    <ScrollView>
     <View className="flex-1 bg-[#F8FAFE] px-5 pt-14">
-      
       {/* Header */}
       <View className="flex-row justify-between items-center">
         <View className="flex-row items-center gap-x-1">
@@ -78,13 +84,28 @@ export default function Index() {
         />
       </View>
 
-      {/* Value Carrusel - Ahora con props personalizables */}
+      {/* Carrusel */}
       <ValuesCarousel 
         images={valoresImages}
         autoPlay={true}
         autoPlayDuration={3000}
         height={160}
       />
+
+      {/* Horario de clases */}
+      <ClassSchedules
+        diaActual="Viernes"
+        fechaActual="19/09"
+        diaSiguiente="Sábado"
+        fechaSiguiente="20/09"
+        horaInicio="19:00"
+        horaFin="20:59"
+        curso="Matemática Discreta"
+        nrc="2125"
+      />
+
+      <Reservation/>
     </View>
+    </ScrollView>
   );
 }
