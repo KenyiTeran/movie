@@ -28,7 +28,7 @@ export default function HorarioClase({
   salon,
 }: HorarioClaseProps) {
   return (
-    <View className="bg-white rounded-2xl p-4 mt-8" 
+    <View className="bg-white rounded-2xl p-[22px] mt-8" 
     style={theme.shadows.base}>
       {/* Encabezado */}
       <View className="flex-row justify-between items-center mb-4">

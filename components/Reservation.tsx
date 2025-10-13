@@ -28,7 +28,7 @@ export default function Reservation(){
     ]
 
     return(
-        <View className="bg-white rounded-2xl p-4 mt-8"
+        <View className="bg-white rounded-2xl p-[21px] mt-8"
             style={theme.shadows.base}>
             <View className="flex flex-row items-center">
                 <Image source={Calendar}/>
