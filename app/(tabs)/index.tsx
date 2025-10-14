@@ -5,6 +5,7 @@ import Reservation from "@/components/Reservation";
 import ClassSchedules from '../../components/ClassSchedules';
 import ValuesCarousel from '../../components/ValuesCarousel';
 import CallToAction from "../../components/CallToAction";
+import Courses from "../../components/Courses"
 
 //Images
 import Slider from '../../assets/images/slider1.png';
@@ -87,9 +88,11 @@ export default function Index() {
         />
         
         <Reservation/>
-        
+
         {/* Call to action */}
         <CallToAction/>
+
+        <Courses/>
       </View>
     </ScrollView>
   );
