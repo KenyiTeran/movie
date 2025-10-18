@@ -2,20 +2,21 @@ import { Image, ScrollView, Text, View } from "react-native";
 
 // Components
 import Reservation from "@/components/Reservation";
-import ClassSchedules from '../../components/ClassSchedules';
-import ValuesCarousel from '../../components/ValuesCarousel';
 import CallToAction from "../../components/CallToAction";
-import Courses from "../../components/Courses"
+import ClassSchedules from '../../components/ClassSchedules';
+import Courses from "../../components/Courses";
+import ValuesCarousel from '../../components/ValuesCarousel';
 
 //Images
 import Slider from '../../assets/images/slider1.png';
+import Slider2 from '../../assets/images/slider2.jpg';
 import Campana from "../../assets/svg/campana.svg";
 
 export default function Index() {
   // Define tus imágenes aquí
   const valoresImages = [
     Slider,
-    Slider,
+    Slider2,
     Slider,
   ];
 
@@ -53,7 +54,7 @@ export default function Index() {
               style={{ fontFamily: "SolanoGothicMVB-Bold" }}
               className="text-3xl text-red-600"
             >
-              Kenyi Wilson
+              USUARIO
             </Text>
             <Text className="text-base text-slate-600 mt-1">
               ¡Te damos la bienvenida!

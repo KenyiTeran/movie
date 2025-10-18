@@ -7,7 +7,7 @@ import ReservationForm from '../../components/ReservationForm';
 export default function DeportivoScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <ReservationForm type="deportivo" />
+      <ReservationForm type="laboratorio" />
     </SafeAreaView>
   );
 }

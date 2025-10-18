@@ -1,7 +1,7 @@
 import { Clock } from "lucide-react-native";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import {theme} from "../src/theme";
+import { theme } from "../src/theme";
 
 
 interface HorarioClaseProps {
@@ -42,9 +42,9 @@ export default function HorarioClase({
           </Text>
         </View>
 
-        <Text className="text-blue-600 text-base font-semibold">
+        {/* <Text className="text-blue-600 text-base font-semibold">
           Ver todos →
-        </Text>
+        </Text> */}
       </View>
 
       {/* Botones de días */}

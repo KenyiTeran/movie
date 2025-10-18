@@ -12,9 +12,11 @@ interface ReservationFormProps {
 }
 
 const ReservationForm: React.FC<ReservationFormProps> = ({ type }) => {
-  const [campus, setCampus] = useState('');
-  const [spaceType, setSpaceType] = useState('');
+  // Almacena los valores de los inputs
+  const [campus, setCampus] = useState(''); 
+  const [spaceType, setSpaceType] = useState(''); 
   const [date, setDate] = useState(new Date());
+
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showCampusDropdown, setShowCampusDropdown] = useState(false);
   const [showSpaceDropdown, setShowSpaceDropdown] = useState(false);
@@ -30,10 +32,10 @@ const ReservationForm: React.FC<ReservationFormProps> = ({ type }) => {
       ]
     : [
         'Laboratorio de Computación',
-        'Laboratorio de Física',
-        'Laboratorio de Química',
+        'Laboratorio de Electrónica',
+        'Laboratorio de Mecatrónica',
         'Laboratorio de Ingeniería',
-        'Laboratorio de Diseño'
+        'Laboratorio de Telecomunicaciones'
       ];
 
   const title = type === 'deportivo' 
